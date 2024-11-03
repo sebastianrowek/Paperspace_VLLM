@@ -1,0 +1,22 @@
+python -m venv vllm_venv
+
+source vllm_venv/bin/activate
+
+
+
+
+pip install vllm
+
+## Only for now ##
+#For LLaVA-NeXT-Video and Qwen2-VL, the latest release of huggingface/transformers doesn’t work yet, 
+#so we need to use a developer version (21fac7abba2a37fae86106f87fcf9974fd1e3830) for now. 
+
+pip uninstall transformers
+pip install git+https://github.com/huggingface/transformers.git@21fac7abba2a37fae86106f87fcf9974fd1e3830
+
+pip install gputil
+
+
+
+
+export LD_LIBRARY_PATH=notebooks/qwen2/lib64/python3.11/site-packages/nvidia/nvjitlink/lib
